@@ -2051,9 +2051,9 @@ def initialize_parser():
        
          format:
          
-         path        pheno    study        R_phen
-         /path/to/file1   pheno1    study1     TRUE
-         /path/to/file2   pheno2    study2     FALSE
+         path        study    pheno        R_phen
+         /path/to/file1   study1    pheno1     TRUE
+         /path/to/file2   study2    pheno2     FALSE
          """,
     )
     parser.add_argument(
