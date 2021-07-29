@@ -99,7 +99,7 @@ We provide for download exome meta-analysis summary statistics for HDL cholester
 |       Trait     |     Summary Statistic    |
 | --------------  | ------------ |
 | HDL Cholesterol | https://biobankengine.stanford.edu/static/hdl_mrpmm.metal.tsv.gz |
-| Triglycerides  | https://biobankengine.stanford.edu/static/tg_mrpmm.metal.tsv..gz |
+| Triglycerides  | https://biobankengine.stanford.edu/static/tg_mrpmm.metal.tsv.gz |
 | LDL Cholesterol | https://biobankengine.stanford.edu/static/ldl_mrpmm.metal.tsv.gz |
 
 ### Protein-truncating variant clustering analysis
