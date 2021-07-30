@@ -140,3 +140,25 @@ Note the use of a non-default higher SE threshold for quantitative trait. The de
 ### Other optionalities
 
 As mentioned in the `-h` command, MRPMM is flexible enough to perform clusterings for any valid integer value of clusters, use different standard error and minor allele frequency thresholds, and analyze PCVs, PAVs, or PTVs. We caution against using MRPMM for a large number of genes (containing a large number of variants) as this may result in none of the hypothesized number of clusters fitting well.
+
+## Output file breakdown
+
+MRPMM generates many output files, of which one will want to focus on one in particular first: the `[prefix].mcmc.bic.aic` file. This file lists all of the hypothesized cluster numbers that were input using `--C` and their respective BICs, AICs, and log<sub>10</sub> BFs. Say we have the following `[prefix].mcmc.bic.aic` file in front of us:
+
+```
+num_clusters    BIC     AIC     log10BF
+1       6063.691114441356       6063.691114441356       0.0
+2       4495.053803446649       4430.75631201471        340.6252641362782
+3       4320.899818566134       4192.304835702254       378.44232145381324
+4       3783.064880281787       3590.1724059859675      495.2316943896472
+5       4013.246244148247       3756.056278420488       445.24844630756303
+6       3827.3862310565582      3505.8987738968594      485.60743535365634
+7       4776.585262607093       4390.800314015454       279.4914845385025
+8       3707.0659512171856      3256.9835111936072      511.7346521513037
+```
+
+This would imply that the clear choice for the number of clusters would be 4, since the log<sub>10</sub> BF decreases and the BIC/AIC increase after this number of clusters (for BIC and AIC, which are measures of fit, lower is better). One might be tempted to pick 8 clusters, since the log<sub>10</sub> BF is highest there, but generally it is best to pick the "first best" number of clusters.
+
+Next, there should be a file called `[prefix]_4.mcmc.bc`. We look at this file because we have picked 4 clusters as our best number of clusters. This file provides the effect size profiles for each phenotype (that is part of the potentially multivariate phenotype) per cluster. These can be visualized in any plotting software of your choice.
+
+Finally, we want the variant-level breakdown of how each variant is classified to each cluster. This can be found in `[prefix]_4.mcmc.posteriors` and visualized accordingly. Gene-level posteriors can be derived from this set of files by grouping by gene and averaging the posterior probabilities of the variants within the genes being assigned to each cluster.
