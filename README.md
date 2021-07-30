@@ -9,7 +9,7 @@ A full list of options can be obtained by running `python3 mrpmm.py -h`, and the
 ```{bash}
 (base) user$ python3 mrpmm.py -h
 usage: mrpmm.py [-h] --variants VARIANTS --phenotypes PHENOTYPES
-                --metadata_path METADATA_PATH
+                --metadata_path METADATA_PATH --build {hg19,hg38}
                 [--variant_filters {pcv,pav,ptv} [{pcv,pav,ptv} ...]]
                 [--out_folder OUT_FOLDER] [--C CLUSTERS [CLUSTERS ...]]
                 [--se_thresh SE_THRESH] [--maf_thresh MAF_THRESH]
@@ -36,7 +36,7 @@ optional arguments:
                                
                                  format:
                                  
-                                 path        study     pheno     R_phen
+                                 path        study    pheno        R_phen
                                  /path/to/file1   study1    pheno1     TRUE
                                  /path/to/file2   study2    pheno2     FALSE
                                  
@@ -52,6 +52,7 @@ optional arguments:
                                  V       gene_symbol     most_severe_consequence HGVSp  
                                  1:69081:G:C     OR4F5   5_prime_UTR_variant     ""
                                 
+  --build {hg19,hg38}   genome build (hg19 or hg38). Required.
   --variant_filters {pcv,pav,ptv} [{pcv,pav,ptv} ...]
                         variant set(s) to consider. 
                                  options: proximal coding [pcv], 
@@ -132,7 +133,7 @@ path	study	pheno	R_phen
 
 Then, from the command line, we run:
 
-`python3 mrpmm.py --variants /path/to/variant_file --phenotypes /path/to/map_file --metadata_path /path/to/ukb_exm_oqfe-consequence_wb_maf_gene_ld_indep_mpc_pli.tsv.gz --C 1 2 3 4 5 --se_thresh 100 --variant_filters ptv`
+`python3 mrpmm.py --variants /path/to/variant_file --phenotypes /path/to/map_file --build hg38 --metadata_path /path/to/ukb_exm_oqfe-consequence_wb_maf_gene_ld_indep_mpc_pli.tsv.gz --C 1 2 3 4 5 --se_thresh 100 --variant_filters ptv`
 
 Note the use of a non-default higher SE threshold for quantitative trait. The defaults should take care of the rest.
 
