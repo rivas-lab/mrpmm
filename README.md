@@ -1,6 +1,6 @@
-# Multiple Rare-variants and Phenotypes Mixed Model
+# Multiple Rare-variants and Phenotypes Mixture Model
 
-This directory contains code and documentation for the [Multiple Rare-variants and Phenotypes Mixed Model method]() by Venkataraman *et. al.*. The repository is maintained by Guhan Ram Venkataraman (GitHub: guhanrv).
+This directory contains code and documentation for the [Multiple Rare-variants and Phenotypes Mixture Model]() by Venkataraman *et. al.*. The repository is maintained by Guhan Ram Venkataraman (GitHub: guhanrv).
 
 ## Script details and options
 
